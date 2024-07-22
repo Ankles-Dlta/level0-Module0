@@ -13,9 +13,15 @@ def screen_clicked(x, y):
     print('You pressed: x=' + str(x) + ', y=' + str(y))
     
     # 6. Call the turtle .penup() method
-    
+    bob.penup()
     # 7. Move the turtle to a new location using .goto(x, y)
-
+    bob.goto(-300, 300)
+    bob.pendown()
+    bob.goto(-300, -300)
+    bob.goto(50, -300)
+    bob.goto(200, -100)
+    bob.goto(300, 200)
+    bob.goto(-300, 300)
 
 def turtle_clicked(x, y):
     print('turtle clicked!')
@@ -34,16 +40,18 @@ if __name__ == '__main__':
     window.setup(width=0.75, height=0.8, startx=0, starty=0)
     
     # 1. Make a new turtle
-    
+    bob = turtle.Turtle()
     # 2. Make your turtle's shape 'turtle', .shape('turtle')
-    
+    bob.shape('turtle')
     # 3. Set your turtle's color using .color('green') and .pencolor('blue')
-    
+    bob.color('black')
+    bob.pencolor('grey')
     # 4. Set and new width, length, and outline of our turtle
     #    my_turtle.turtlesize(stretch_wid=10, stretch_len=10, outline=4)
-
+    bob.turtlesize(stretch_wid=10, stretch_len=10, outline=4)
     # 5. Uncomment the following line and replace 'my_turtle' with your turtle
     # my_turtle.onclick(turtle_clicked)
+    bob.onclick(turtle_clicked)
 
 # ===================== DO NOT EDIT THE CODE BELOW ============================
     window.onclick(screen_clicked)
