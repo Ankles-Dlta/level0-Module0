@@ -16,7 +16,7 @@ if __name__ == '__main__':
     # Get the player to enter a body part
 
     # Get the player to enter a verb
-
+s
     # Get the player to enter a place
 
     # The story below has has been written as a group of Strings joined
