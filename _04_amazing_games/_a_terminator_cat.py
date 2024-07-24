@@ -39,15 +39,90 @@ def screen_clicked(x, y):
 
 def key_pressed():
     print('You pressed the space key')
-    
+
+    import turtle
+    from PIL import Image
+
+    # ================= Instructions at the bottom of this file ===================
+
+    def set_background(filename):
+        try:
+            image = Image.open(filename)
+        except(FileNotFoundError, IOError):
+            print("ERROR: Unable to find file " + filename)
+            return
+
+        window.setup(image.width + 100, image.height + 100, startx=0, starty=0)
+        window.bgpic(filename)
+
+    class Eye:
+        def __init__(self, eye=None, x=0, y=0, radius=30):
+            self.eye = eye
+            self.x = x
+            self.y = y
+            self.radius = radius
+
+            self.eye.penup()
+
+        def draw(self):
+            self.eye.begin_fill()
+            self.eye.goto(self.x, self.y)
+            self.eye.circle(radius=self.radius, steps=20)
+            self.eye.end_fill()
+
+    # ====================== DO NOT EDIT THE CODE ABOVE ===========================
+
+    def screen_clicked(x, y):
+        print('You pressed: x=' + str(x) + ', y=' + str(y))
+
+    def key_pressed():
+        print('You pressed the space key')
+
+        # LASER BEAM.  This code will make your ellipse move down and to the right
+        # when you press the space bar. Run the program to test it.
+
+        # 10. Increment the x and y variables of the 2 eye variables by 5:
+        left_eye.x += 5
+        right_eye.x += 5
+        left_eye.y -= 5
+        right_eye.y -= 5
+
+        # 11. Call the .draw() method for both eye variables.
+        left_eye.draw()
+        right_eye.draw()
+
+    if __name__ == '__main__':
+        window = turtle.Screen()
+
+        # 1. Find an image of a cat with BIG eyes OR use one of the 2 images provided
+        #    a. Find an image using google to search. The image must be a .gif file
+        #    b. Right click on the image and select 'Save image As'
+        #    c. Rename the image something short (e.g. cat.gif)
+        #    d. Save the image to your computer's desktop
+        #    e. Drag and drop the image into this python package
+        bg_image = 'cat.gif'  # Replace with your image filename
+        set_background(bg_image)
+
+        # 3. Make a new turtle
+        my_turtle = turtle.Turtle()
+
+        # 4. Set the turtle color and pen color to red (or any color you want)
+        my_turtle.color('red', 'red')
+
+        # 5. Set the turtle width to 0 so no outlines are drawn
+        my_turtle.width(0)
+
+        # 6. Set the turtle speed to 0 (fastest)
+        my_turtle.speed(0)
     # LASER BEAM.  This code will make your ellipse move down and to the right
     # when you press the space bar. Run the program to test it.
 
     # 10. Increment the x and y variables of the 2 eye variables by 5:
     #     left_eye.x += 5
-    
+    my_turtle.draw()
     # 11. Call the .draw() method for both eye variables.
-
+left_eye  = Eye(eye=my_turtle, x=-34, y=11, radius=30)
+right_eye = Eye(eye=my_turtle, x=40, y=-5, radius=30)
 
 if __name__ == '__main__':
     window = turtle.Screen()

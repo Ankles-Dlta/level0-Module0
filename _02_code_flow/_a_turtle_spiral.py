@@ -60,9 +60,9 @@ if __name__ == '__main__':
             # Set the turtle color to a random color
             bob.color('green')
             # Move the turtle (5*i) pixels. 'i' is the loop variable
-            bob.forward(10 * i)
+            bob.forward(2 * i)
             # Turn the turtle (360/7) degrees to the right
-            bob.right(360 / 20)
+            bob.right(360 / 8)
             # Change the turtle width to 'i' (the loop variable)
             bob.width(i)
 # ===================== DO NOT EDIT THE CODE BELOW ============================
